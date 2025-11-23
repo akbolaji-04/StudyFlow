@@ -72,7 +72,7 @@
 
   // Call server summarization endpoint
   async function summarizeWithServer(text){
-    const url = '/api/summarize';
+    const url = 'https://akbolaji04-studyflow-backend.hf.space/api/summarize';
     const resp = await fetch(url, {
       method: 'POST',
       headers: {'Content-Type':'application/json'},
