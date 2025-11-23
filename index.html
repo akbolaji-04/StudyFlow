@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="theme-color" content="#ffffff" />
+  <link rel="icon" href="assets/studyflow_logo.svg" />
+  <title>StudyFlow — AI-Powered Study Assistant</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/styles.css" />
+</head>
+<body>
+  <!-- Decorative animated background blobs -->
+  <div class="bg-anim" aria-hidden="true">
+    <span class="blob blob-1"></span>
+    <span class="blob blob-2"></span>
+    <span class="blob blob-3"></span>
+  </div>
+  <header class="site-header">
+    <div class="container header-inner">
+      <div class="brand">
+        <img src="assets/Studyflow_logo.svg" alt="StudyFlow" class="logo-img" />
+        <div class="brand-text">
+          <h2>StudyFlow</h2>
+          <p class="tag">AI-powered study assistant</p>
+        </div>
+      </div>
+      <div class="controls">
+        <button id="theme-toggle" aria-label="Toggle theme" class="theme-toggle">🌙</button>
+        <a class="btn nav-cta" href="#signup">Join Beta</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container hero-grid">
+        <div class="hero-left">
+          <h2 class="hero-title">Turn chaos into A+ clarity.</h2>
+          <p class="lead">Plan, summarize, and track your study streaks with a little help from AI.</p>
+          <div class="cta">
+            <a class="btn primary" href="#">Get started — it's free</a>
+            <a class="btn ghost" href="#">See demo</a>
+          </div>
+        </div>
+        <div class="hero-right">
+          <div class="ai-demo" aria-hidden="false">
+            <div class="ai-in-action">
+              <div class="panel notes-panel">
+                <div class="panel-title">Messy Notes</div>
+                <div style="padding:10px">
+                  <textarea id="note-input" rows="6" placeholder="Paste your notes here or let the demo populate them..." style="width:100%;border-radius:8px;border:1px solid rgba(0,0,0,0.06);padding:10px;font-family:inherit;resize:vertical"></textarea>
+                </div>
+                <pre id="messy" class="panel-content" aria-live="polite" style="display:none"></pre>
+                <div style="padding:10px;display:flex;gap:8px;align-items:center">
+                  <button id="summarize-btn" class="btn primary">Summarize</button>
+                  <button id="demo-toggle" class="btn ghost" title="Toggle auto demo">Auto demo</button>
+                </div>
+              </div>
+              <div class="arrow">
+                <!-- Brand transition icon (animates on summarize) -->
+                <svg id="transition-icon" width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                  <path id="tpath" d="M6 30 C16 18, 32 18, 42 6" stroke="rgba(0,0,0,0.15)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+                  <circle id="tdot" cx="42" cy="6" r="3.5" fill="var(--accent)" opacity="0.95" />
+                </svg>
+              </div>
+              <div class="panel summary-panel" style="position:relative">
+                <div class="panel-title">Clean Summary</div>
+                <div id="summary-wrap">
+                  <pre id="summary" class="panel-content" aria-live="polite"></pre>
+                </div>
+                <div id="summary-overlay" class="summary-overlay" style="display:none">
+                  <div class="spinner" aria-hidden="true"></div>
+                </div>
+              </div>
+            </div>
+            <div class="ai-caption">AI in action — watch notes become a summary</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="features container">
+      <h3 class="section-title">Feature Timeline</h3>
+      <div class="timeline-wrap">
+        <div class="timeline">
+          <article class="timeline-item">
+            <h4>Plan</h4>
+            <p>Create study plans tailored to your classes and exam dates.</p>
+            <span class="time">Today</span>
+          </article>
+          <article class="timeline-item">
+            <h4>Summarize</h4>
+            <p>Instantly turn long notes into concise summaries.</p>
+            <span class="time">Soon</span>
+          </article>
+          <article class="timeline-item">
+            <h4>Track</h4>
+            <p>Keep streaks and get gentle nudges to stay on track.</p>
+            <span class="time">Coming</span>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="testimonials container">
+      <h3 class="section-title">Student Notes — real results</h3>
+      <div class="test-grid">
+        <figure class="scrap">
+          <blockquote>“StudyFlow turned my lecture chaos into focused notes — saved me hours.”</blockquote>
+          <figcaption>— Maya, Biology</figcaption>
+        </figure>
+        <figure class="scrap">
+          <blockquote>“The summaries are actually studyable — I nailed my midterms.”</blockquote>
+          <figcaption>— Jamal, Economics</figcaption>
+        </figure>
+        <figure class="scrap">
+          <blockquote>“I love the streak tracker — keeps me consistent.”</blockquote>
+          <figcaption>— Priya, Engineering</figcaption>
+        </figure>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <small>@202 StudyFlow - Built by <strong>Abolaji Akorede</strong></small>
+    </div>
+  </footer>
+
+  <!-- Admin panel removed (not using live Groq). -->
+  <script src="assets/script.js" defer></script>
+
+  <!-- Dev toolbar removed -->
+</body>
+</html>
