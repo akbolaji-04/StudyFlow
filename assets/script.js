@@ -49,20 +49,52 @@
     while(autoDemo){
       noteInput.style.display = 'none';
       messyEl.style.display = 'block';
+      
+      // 1. Type the messy note
       await typeText(messyEl, messyText, 16);
       await sleep(600);
+      
+      // 2. Show "Processing" overlay
       overlay.style.display = 'flex';
       summaryEl.textContent = '';
       await sleep(200);
+      
+      // 3. Type the summary
       await typeText(summaryEl, summaryText, 20);
       overlay.style.display = 'none';
+      
+      // 4. Hold the result so user can read it (2.4s)
       await sleep(2400);
+      
+      // 5. Reset for next loop
       messyEl.textContent = '';
       summaryEl.textContent = '';
+      
+      // 6. Show the Input box again
       noteInput.style.display = 'block';
-      await sleep(400);
+      
+      // --- FIX STARTS HERE ---
+      // Wait 5 seconds (5000ms) instead of 0.4s so you have time to click
+      // We check 'autoDemo' every 100ms so it stops immediately if you click
+      for(let i=0; i<50; i++) { 
+        if(!autoDemo) break; 
+        await sleep(100); 
+      }
+      // --- FIX ENDS HERE ---
     }
   }
+
+  demoToggle.addEventListener('click', ()=>{
+    autoDemo = !autoDemo;
+    demoToggle.textContent = autoDemo ? 'Auto demo' : 'Manual';
+    if(autoDemo) runAutoDemoLoop();
+  });
+
+  // NEW: Stop animation immediately when you click the text box
+  noteInput.addEventListener('focus', () => {
+    autoDemo = false;
+    demoToggle.textContent = 'Manual';
+  });
 
   demoToggle.addEventListener('click', ()=>{
     autoDemo = !autoDemo;
